@@ -1,11 +1,11 @@
-.PHONY: all en-us cleanlog cleanaux cleanpdf clean cleanall
+LOCALES := en-us
 
-locales = en-us
+.PHONY: all cleanlog cleanaux cleanpdf clean cleanall $(LOCALES)
 
-all: $(locales)
+all: $(LOCALES)
 
-en-us:
-	make -C $@
+$(LOCALES):
+	$(MAKE) -C $@
 
 cleanlog:
 	rm -f ./build/*.log
