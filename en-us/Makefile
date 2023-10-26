@@ -14,7 +14,7 @@ compile: ../build/$(output).pdf
 	pdflatex -jobname $(output) -output-directory=../build ./main.tex
 
 cleantoc:
-	rm -f ../build$(output).toc
+	rm -f ../build/$(output).toc
 
 cleanlog:
 	rm -f ../build/$(output).log
