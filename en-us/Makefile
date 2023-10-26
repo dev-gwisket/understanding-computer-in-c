@@ -3,6 +3,7 @@
 output = understanding-computer-in-c
 
 build:
+	@$(MAKE) cleanpdf
 	@$(MAKE) compile
 	@$(MAKE) cleanpdf
 	@$(MAKE) compile
