@@ -1,9 +1,20 @@
-.PHONY: clean cleanall cleanlog cleanaux cleanpdf
+.PHONY: clean cleanall cleanlog cleanaux cleanpdf compile build
 
 output = understanding-computer-in-c
 
-../build/understanding-computer-in-c.pdf:
+build:
+	@$(MAKE) compile
+	@$(MAKE) cleanpdf
+	@$(MAKE) compile
+	@$(MAKE) clean
+
+compile: ../build/$(output).pdf
+
+../build/$(output).pdf:
 	pdflatex -jobname $(output) -output-directory=../build ./main.tex
+
+cleantoc:
+	rm -f ../build$(output).toc
 
 cleanlog:
 	rm -f ../build/$(output).log
@@ -14,5 +25,5 @@ cleanaux:
 cleanpdf:
 	rm -f ../build/$(output).pdf
 
-clean: cleanlog cleanaux
+clean: cleanlog cleanaux cleantoc
 cleanall: clean cleanpdf
