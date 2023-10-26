@@ -1,4 +1,4 @@
-.PHONY: clean cleanlog cleanaux cleanpdf
+.PHONY: clean cleanall cleanlog cleanaux cleanpdf
 
 output = understanding-computer-in-c
 
